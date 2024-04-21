@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">MobileSystems</string>
+    <string name="app_name">lab4</string>
+
+    <string-array name="items_array">
+        <item></item>
+        <item>Силовая подача</item>
+        <item>Крученая подача</item>
+        <item>Блок</item>
+        <item>Прием</item>
+        <item>Пас</item>
+    </string-array>
+
+    <string-array name="gender_options">
+        <item></item>
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+
 </resources>

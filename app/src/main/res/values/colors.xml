@@ -7,4 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="button_default">#FF5722</color> <!-- Цвет фона по умолчанию -->
+    <color name="button_pressed">#8BC34A</color> <!-- Цвет фона при нажатии -->
 </resources>
