@@ -24,7 +24,6 @@ public class PageStack extends AppCompatActivity {
         Button backButton = findViewById(R.id.backButton);
         Button forwardButton = findViewById(R.id.forwardButton);
 
-
         stackDepthTextView.setText("Глубина стека: " + stackDepth);
 
         backButton.setOnClickListener(new View.OnClickListener() {
