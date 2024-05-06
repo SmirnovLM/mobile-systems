@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        function fetchData() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://www.cbr.ru/scripts/XML_daily.asp', false);
+            xhr.send();
+            window.Android.onReceivedXml(xhr.responseText);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
