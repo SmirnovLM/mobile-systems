@@ -65,6 +65,5 @@ public class HouseView extends View {
         roofPath.lineTo(width / 6, height / 2);
         roofPath.close();
         canvas.drawPath(roofPath, paint);
-
     }
 }
