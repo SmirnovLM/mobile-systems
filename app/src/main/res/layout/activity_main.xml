@@ -77,4 +77,16 @@
         android:layout_marginEnd="100dp"
         android:text="MP3 Player" />
 
+    <Button
+        android:id="@+id/buttonActivityVideoPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonActivityMP3Player"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="100dp"
+        android:text="Video Player" />
+
 </RelativeLayout>

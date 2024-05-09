@@ -4,19 +4,45 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button_select"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_select_music"
+        android:layout_width="387dp"
         android:layout_height="wrap_content"
-        android:text="Select Music"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:text="Select Music" />
+
+    <ImageView
+        android:id="@+id/imageView_album_art"
+        android:layout_width="match_parent"
+        android:layout_height="379dp"
+        android:layout_below="@+id/button_select_music"
+        android:layout_marginTop="72dp" />
+
 
     <Button
-        android:id="@+id/button_play"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_play_music"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Play"
-        android:layout_below="@id/button_select"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="33dp"
+        android:layout_toStartOf="@+id/button_restart_music"
+        android:text="Play" />
+
+    <Button
+        android:id="@+id/button_restart_music"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="33dp"
+        android:text="Restart" />
 
 </RelativeLayout>

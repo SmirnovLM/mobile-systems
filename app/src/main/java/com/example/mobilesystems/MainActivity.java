@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonActivityParticleExplosion = findViewById(R.id.buttonActivityParticleExplosion);
         Button buttonActivityParticleFontan = findViewById(R.id.buttonActivityParticleFontan);
         Button buttonActivityMP3Player = findViewById(R.id.buttonActivityMP3Player);
+        Button buttonActivityVideoPlayer = findViewById(R.id.buttonActivityVideoPlayer);
 
         // Назначаем обработчики событий для кнопок
         buttonActivityDrawHouse.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ActivityMP3Player.class));
+            }
+        });
+
+        buttonActivityVideoPlayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ActivityVideoPlayer.class));
             }
         });
     }
