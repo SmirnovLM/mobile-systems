@@ -3,4 +3,29 @@
     android:id="@+id/dead_animation"
     android:oneshot="false">
 
+    <item
+        android:drawable="@drawable/dead_1"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_2"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_3"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_5"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_6"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_7"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/dead_8"
+        android:duration="100" />
+
 </animation-list>

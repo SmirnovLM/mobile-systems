@@ -4,30 +4,15 @@
     android:oneshot="false">
 
     <item
-        android:drawable=""
-        android:duration="200"/>
+        android:drawable="@drawable/jump_1"
+        android:duration="100" />
     <item
-        android:drawable=""
-        android:duration="200"/>
-    <item
-        android:drawable=""
-        android:duration="200"/>
-    <item
-        android:drawable=""
-        android:duration="200"/>
-    <item
-        android:drawable=""
-        android:duration="200"/>
-    <item
-        android:drawable=""
-        android:duration="200"/>
-    <item
-        android:drawable=""
-        android:duration="200"/>
-    <item
-        android:drawable=""
-        android:duration="200"/>
+        android:drawable="@drawable/jump_2"
+        android:duration="100" />
 
+    <item
+        android:drawable="@drawable/jump_3"
+        android:duration="100" />
 
 
 </animation-list>
