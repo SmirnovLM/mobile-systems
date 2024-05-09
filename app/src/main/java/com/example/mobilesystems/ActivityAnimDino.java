@@ -1,15 +1,19 @@
 package com.example.mobilesystems;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.drawable.AnimationDrawable;
+
+import java.util.Objects;
 
 public class ActivityAnimDino extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_anim_dino);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         // Получаем ссылки на ImageView для каждой анимации
         ImageView jumpImageView = findViewById(R.id.jumpImageView);
@@ -29,5 +33,16 @@ public class ActivityAnimDino extends AppCompatActivity {
         AnimationDrawable animation = (AnimationDrawable) getResources().getDrawable(animationResource);
         imageView.setImageDrawable(animation);
         animation.start();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
