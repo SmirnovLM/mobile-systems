@@ -3,4 +3,30 @@
     android:id="@+id/run_animation"
     android:oneshot="false">
 
+    <item
+        android:drawable="@drawable/run_1"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_2"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_3"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_5"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_6"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_7"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/run_8"
+        android:duration="100" />
+
+
 </animation-list>

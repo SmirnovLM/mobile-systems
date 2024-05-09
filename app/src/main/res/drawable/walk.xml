@@ -3,4 +3,32 @@
     android:id="@+id/jump_animation"
     android:oneshot="false">
 
+    <item
+        android:drawable="@drawable/walk_1"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_2"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_3"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_5"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_6"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_7"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_8"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/walk_9"
+        android:duration="100" />
+
 </animation-list>

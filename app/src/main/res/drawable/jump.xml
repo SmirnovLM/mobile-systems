@@ -9,10 +9,35 @@
     <item
         android:drawable="@drawable/jump_2"
         android:duration="100" />
-
     <item
         android:drawable="@drawable/jump_3"
         android:duration="100" />
-
+    <item
+        android:drawable="@drawable/jump_4"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_5"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_6"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_7"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_8"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_9"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_10"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_11"
+        android:duration="100" />
+    <item
+        android:drawable="@drawable/jump_12"
+        android:duration="100" />
 
 </animation-list>
