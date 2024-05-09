@@ -2,6 +2,7 @@ package com.example.mobilesystems;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,14 +13,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Objects;
+
 public class ActivityPageStack extends AppCompatActivity {
 
     static private PageStackHandler pageStackHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_stack);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         if (pageStackHandler == null) {
             pageStackHandler = new PageStackHandler();
@@ -57,5 +62,16 @@ public class ActivityPageStack extends AppCompatActivity {
         stackPage.setText("Глубина стека: " + pageStackHandler.getStackPage());
         stackAddTextView.setText("Кол-во добавленных страниц: " + pageStackHandler.getAddedPagesCount());
         stackDelTextView.setText("Кол-во удаленных страниц: " + pageStackHandler.getRemovedPagesCount());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
