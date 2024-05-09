@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityAnimDino">
+
+    <!-- ImageView для анимации прыжка -->
+    <ImageView
+        android:id="@+id/jumpImageView"
+        android:layout_width="152dp"
+        android:layout_height="146dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/jump" />
+
+    <!-- ImageView для анимации бега -->
+    <ImageView
+        android:id="@+id/runImageView"
+        android:layout_width="152dp"
+        android:layout_height="146dp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/jumpImageView"
+        android:src="@drawable/run" />
+
+    <!-- ImageView для анимации ходьбы -->
+    <ImageView
+        android:id="@+id/walkImageView"
+        android:layout_width="152dp"
+        android:layout_height="146dp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/runImageView"
+        android:src="@drawable/walk" />
+
+    <!-- ImageView для анимации смерти -->
+    <ImageView
+        android:id="@+id/deadImageView"
+        android:layout_width="152dp"
+        android:layout_height="146dp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/walkImageView"
+        android:src="@drawable/dead" />
+
+</RelativeLayout>
