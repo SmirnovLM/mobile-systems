@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/stackDepthTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Глубина стека: 0"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/stackDepthTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="168dp"
+        android:text="Назад" />
+
+    <Button
+        android:id="@+id/forwardButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/backButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="168dp"
+        android:text="Вперед" />
+
+    <TextView
+        android:id="@+id/stackAddTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forwardButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="50dp"
+        android:text="Кол-во добавленных страниц: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/stackDelTextView"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/stackAddTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:text="Кол-во удаленных страниц: "
+        android:textSize="18sp" />
+
+</RelativeLayout>
