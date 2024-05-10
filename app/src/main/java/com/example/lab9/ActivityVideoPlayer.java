@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab9;
 
 import android.content.Intent;
 import android.os.Bundle;

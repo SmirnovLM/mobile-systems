@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ActivityDrawHouse">
 
-    <com.example.mobilesystems.HouseView
+    <com.example.lab9.HouseView
         android:id="@+id/houseView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

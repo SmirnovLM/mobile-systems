@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.mobilesystems.ParticleFontanView
+    <com.example.lab9.ParticleFontanView
         android:id="@+id/particleFontanView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

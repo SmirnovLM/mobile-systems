@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.mobilesystems.ParticleExplosionView
+    <com.example.lab9.ParticleExplosionView
         android:id="@+id/particleExplosionView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

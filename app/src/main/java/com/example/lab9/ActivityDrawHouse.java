@@ -1,22 +1,18 @@
-package com.example.mobilesystems;
+package com.example.lab9;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
 
-public class ActivityParticleFontan extends AppCompatActivity {
+public class ActivityDrawHouse extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.particle_fontan_view);
+        setContentView(R.layout.activity_draw_house);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 

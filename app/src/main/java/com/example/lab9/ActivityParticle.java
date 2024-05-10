@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab9;
 
 import android.os.Bundle;
 import android.view.MenuItem;

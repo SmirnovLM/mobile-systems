@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab9;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,13 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class ActivityMP3Player extends AppCompatActivity {
