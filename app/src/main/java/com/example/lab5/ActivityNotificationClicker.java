@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab5;
 
 import android.Manifest;
 import android.app.NotificationChannel;
@@ -10,14 +10,17 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import java.util.Objects;
 
-public class NotificationClickerActivity extends AppCompatActivity {
+
+public class ActivityNotificationClicker extends AppCompatActivity {
 
     private static int count = 0;
     private static final String ACTION_INCREMENT = "action_increment";
@@ -27,6 +30,7 @@ public class NotificationClickerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         createNotificationChannel();
         showNotification(this, count);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
     private void createNotificationChannel() {
@@ -89,5 +93,16 @@ public class NotificationClickerActivity extends AppCompatActivity {
             }
             showNotification(context, count);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

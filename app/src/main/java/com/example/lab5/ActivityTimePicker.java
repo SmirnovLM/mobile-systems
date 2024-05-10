@@ -1,34 +1,30 @@
-package com.example.mobilesystems.fragments;
+package com.example.lab5;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import com.example.mobilesystems.R;
-
+import androidx.appcompat.app.AppCompatActivity;
 import java.util.Calendar;
+import java.util.Objects;
 
-public class PageTimeFragment extends Fragment {
+public class ActivityTimePicker extends AppCompatActivity {
 
     private EditText editTextTime;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_page_time, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_time_picker);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        editTextTime = view.findViewById(R.id.editText_time_result);
+        editTextTime = findViewById(R.id.editText_time_result);
         editTextTime.setText("");
-        Button buttonTime = view.findViewById(R.id.button_time_picker);
+        Button buttonTime = findViewById(R.id.button_time_picker);
 
         buttonTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,8 +32,6 @@ public class PageTimeFragment extends Fragment {
                 showTimePickerDialog();
             }
         });
-
-        return view;
     }
 
     private void showTimePickerDialog() {
@@ -45,7 +39,7 @@ public class PageTimeFragment extends Fragment {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
 
-        TimePickerDialog timePickerDialog = new TimePickerDialog(requireContext(),
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
@@ -55,5 +49,16 @@ public class PageTimeFragment extends Fragment {
                 }, hour, minute, true);
 
         timePickerDialog.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

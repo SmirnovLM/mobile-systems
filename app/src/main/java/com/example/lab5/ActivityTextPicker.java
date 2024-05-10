@@ -1,30 +1,29 @@
-package com.example.mobilesystems.fragments;
+package com.example.lab5;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.example.mobilesystems.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class PageTextFragment extends Fragment {
+import java.util.Objects;
+
+public class ActivityTextPicker extends AppCompatActivity {
 
     private EditText editText;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_page_text, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_text_picker);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        editText = view.findViewById(R.id.editText_text_result);
+        editText = findViewById(R.id.editText_text_result);
         editText.setText("");
-        Button buttonText = view.findViewById(R.id.button_text_picker);
+        Button buttonText = findViewById(R.id.button_text_picker);
 
         buttonText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,15 +31,13 @@ public class PageTextFragment extends Fragment {
                 showTextInputDialog();
             }
         });
-
-        return view;
     }
 
     private void showTextInputDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Введите текст");
 
-        final EditText input = new EditText(getContext());
+        final EditText input = new EditText(this);
         input.setText(editText.getText());
 
         builder.setView(input);
@@ -58,5 +55,16 @@ public class PageTextFragment extends Fragment {
             }
         });
         builder.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

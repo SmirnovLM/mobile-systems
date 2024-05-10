@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonActivityPageStack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Page Stack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityTextPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Text Picker"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityPageStack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityDataPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Data Picker"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityTextPicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityTimePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Time Picker"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityDataPicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityWeeklyTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Weekly Tasks"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityTimePicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityWebView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Web View "
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityWeeklyTasks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityListMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity List Menu"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityWebView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityUpDwMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Up Dw Menu"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityListMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActivityNotificationClicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Notification Clicker"
+        app:layout_constraintTop_toBottomOf="@id/buttonActivityUpDwMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
