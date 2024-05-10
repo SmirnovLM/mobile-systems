@@ -26,16 +26,20 @@
 
         <activity
             android:name=".ActivityPageStack"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity Page Stack"/>
         <activity
             android:name=".ActivityStopwatch"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity Stop Watch"/>
         <activity
             android:name=".ActivityHelloWorld"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity Hello World"/>
         <activity
             android:name=".ActivityTrafficLights"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity Traffic Lights"/>
     </application>
 
 </manifest>
