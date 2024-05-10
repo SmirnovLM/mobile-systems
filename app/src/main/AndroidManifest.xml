@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="lab8"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileSystems"
@@ -24,13 +24,16 @@
         </activity>
         <activity
             android:name=".ActivityStringList"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity String List"/>
         <activity
             android:name=".ActivityCounterClassMetaObj"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity Counter Class Meta Obj"/>
         <activity
             android:name=".ActivityCounterClass"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Activity Counter Class"/>
     </application>
 
 </manifest>
