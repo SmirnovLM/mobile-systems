@@ -1,20 +1,18 @@
-package com.example.mobilesystems;
+package com.example.lab6;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ActivityNumberRectangles extends AppCompatActivity {
 
@@ -26,6 +24,7 @@ public class ActivityNumberRectangles extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_number_rectangles);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         Button addButton = findViewById(R.id.addButton);
         ListView rectangleListView = findViewById(R.id.rectangleListView);
@@ -58,4 +57,15 @@ public class ActivityNumberRectangles extends AppCompatActivity {
         rectangleList.remove(position);
         adapter.notifyDataSetChanged();
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.mobilesystems.ColorRectangles;
+package com.example.lab6.ColorRectangles;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.mobilesystems.R;
+import com.example.lab6.R;
 
 import java.util.List;
 

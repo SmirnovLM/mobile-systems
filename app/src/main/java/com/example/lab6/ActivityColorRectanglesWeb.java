@@ -1,15 +1,14 @@
-package com.example.mobilesystems;
+package com.example.lab6;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Objects;
 
 public class ActivityColorRectanglesWeb extends AppCompatActivity {
 
@@ -19,6 +18,7 @@ public class ActivityColorRectanglesWeb extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_rectangles_web);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         webView = findViewById(R.id.webView);
         WebSettings webSettings = webView.getSettings();
@@ -26,4 +26,15 @@ public class ActivityColorRectanglesWeb extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("file:///android_asset/rectangle_list.html");
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

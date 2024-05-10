@@ -1,10 +1,10 @@
-package com.example.mobilesystems;
+package com.example.lab6;
 
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,15 +13,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.mobilesystems.NoteDataBase.DBHelper;
+import com.example.lab6.NoteDataBase.DBHelper;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ActivityNoteKeeper extends AppCompatActivity {
 
@@ -37,6 +34,7 @@ public class ActivityNoteKeeper extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_keeper);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         editTextNote = findViewById(R.id.editTextNote);
         buttonAddNote = findViewById(R.id.buttonAddNote);
@@ -108,5 +106,16 @@ public class ActivityNoteKeeper extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Error deleting note", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

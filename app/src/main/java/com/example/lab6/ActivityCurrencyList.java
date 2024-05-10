@@ -1,8 +1,9 @@
-package com.example.mobilesystems;
+package com.example.lab6;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import org.w3c.dom.NodeList;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,6 +26,7 @@ public class ActivityCurrencyList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_list);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         listViewCurrencies = findViewById(R.id.list_view_currencies);
 
@@ -75,5 +78,16 @@ public class ActivityCurrencyList extends AppCompatActivity {
                 Log.e("FetchCurrenciesTask", "No currencies found");
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

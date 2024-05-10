@@ -1,4 +1,4 @@
-package com.example.mobilesystems.ColorRectangles;
+package com.example.lab6.ColorRectangles;
 
 public class ListItemModel {
     private String colorName;

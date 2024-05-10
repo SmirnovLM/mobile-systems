@@ -9,15 +9,16 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="lab6"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileSystems"
         tools:targetApi="31">
 
         <activity
-            android:name=".ActivityConfigurationGroup"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="lab6">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,69 +26,35 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ActivityConfigurationGroup"
+            android:exported="false"
+            android:label="Activity Configuration Group"/>
         <activity
             android:name=".ActivityConfigurationValue"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="Activity Configuration Value"/>
         <activity
             android:name=".ActivityNoteKeeper"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ActivityCurrencyListJS"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="Activity Note Keeper"/>
         <activity
             android:name=".ActivityCurrencyList"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="Activity Currency List"/>
         <activity
             android:name=".ActivityColorRectanglesWeb"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="Activity Color Rectangles Web"/>
         <activity
             android:name=".ActivityNumberRectangles"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:label="Activity Number Rectangles"/>
         <activity
             android:name=".ActivityColorRectangles"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"
+            android:label="Activity Color Rectangles"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

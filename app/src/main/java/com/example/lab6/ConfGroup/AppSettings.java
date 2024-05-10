@@ -1,9 +1,7 @@
-package com.example.mobilesystems.ConfGroup;
+package com.example.lab6.ConfGroup;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
-
-import androidx.core.content.ContextCompat;
 
 
 public class AppSettings {

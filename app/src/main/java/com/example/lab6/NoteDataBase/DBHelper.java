@@ -1,4 +1,4 @@
-package com.example.mobilesystems.NoteDataBase;
+package com.example.lab6.NoteDataBase;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

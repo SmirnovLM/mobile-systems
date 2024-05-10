@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonActColorRect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Color Rectangles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActColorRectWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Color Rectangles Web"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActColorRect"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActNumberRect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Number Rectangles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActColorRectWeb"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActCurrencyList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Currency List"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActNumberRect"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="16dp"/>
+
+
+    <Button
+        android:id="@+id/buttonActNoteKeeper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Note Keeper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActCurrencyList"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActConfValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Configuration Value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActNoteKeeper"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonActConfGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity Configuration Group"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonActConfValue"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
