@@ -1,7 +1,5 @@
-package com.example.mobilesystems;
+package com.example.lab7;
 
-import android.content.Context;
-import android.util.AttributeSet;
 import android.widget.ImageView;
 
 public class TrafficLight {

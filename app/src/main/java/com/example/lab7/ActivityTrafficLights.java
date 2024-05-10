@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab7;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -9,11 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
 

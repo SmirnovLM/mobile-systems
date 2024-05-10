@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab7;
 
 import android.content.Context;
 import android.os.Handler;
