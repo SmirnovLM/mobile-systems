@@ -1,4 +1,4 @@
-package com.example.mobilesystems;
+package com.example.lab8;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -33,7 +33,7 @@ public class ActivityCounterClassMetaObj extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         try {
-            counterClass = Class.forName("com.example.mobilesystems.CounterClass");
+            counterClass = Class.forName("com.example.lab8.CounterClass");
             constructor = counterClass.getConstructor();
             counterObj = constructor.newInstance();
 
