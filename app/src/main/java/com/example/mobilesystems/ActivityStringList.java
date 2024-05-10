@@ -1,6 +1,7 @@
 package com.example.mobilesystems;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Objects;
+
 public class ActivityStringList extends AppCompatActivity {
 
     private StringList stringList;
@@ -22,6 +25,7 @@ public class ActivityStringList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_string_list);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         stringList = new StringList();
         editTextWord = findViewById(R.id.editTextWord);
@@ -52,5 +56,16 @@ public class ActivityStringList extends AppCompatActivity {
 
     private void updateAllWordsTextView() {
         textViewAllWords.setText(stringList.getAllWordsAsString());
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

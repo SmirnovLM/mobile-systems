@@ -1,6 +1,7 @@
 package com.example.mobilesystems;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Objects;
 
 public class ActivityCounterClassMetaObj extends AppCompatActivity {
     private Class<?> counterClass;
@@ -28,6 +30,7 @@ public class ActivityCounterClassMetaObj extends AppCompatActivity {
         textViewCounter = findViewById(R.id.textViewCounter);
         buttonIncrement = findViewById(R.id.buttonIncrement);
         buttonReset = findViewById(R.id.buttonReset);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         try {
             counterClass = Class.forName("com.example.mobilesystems.CounterClass");
@@ -68,5 +71,16 @@ public class ActivityCounterClassMetaObj extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Обрабатываем нажатие на кнопку "Назад"
+        if (item.getItemId() == android.R.id.home) {
+            // Завершаем текущую активность
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
