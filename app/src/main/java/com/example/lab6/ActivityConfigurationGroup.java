@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -16,8 +18,9 @@ import java.util.Objects;
 
 public class ActivityConfigurationGroup extends AppCompatActivity {
 
-    private EditText editTextConfGroup;
+    private EditText editTextConfGroupLogin, editTextConfGroupPassword;
     private CheckBox checkBoxConfGroup;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,26 +28,29 @@ public class ActivityConfigurationGroup extends AppCompatActivity {
         setContentView(R.layout.activity_configuration_group);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        editTextConfGroup = findViewById(R.id.editTextConfGroup);
+        editTextConfGroupLogin = findViewById(R.id.editTextConfGroupLogin);
+        editTextConfGroupPassword = findViewById(R.id.editTextConfGroupPassword);
         checkBoxConfGroup = findViewById(R.id.checkBoxCongGroup);
+        loginButton = findViewById(R.id.buttonLogin);
 
         // Установка сохраненных значений, если они есть
-        editTextConfGroup.setText(AppSettings.getText(this));
+        editTextConfGroupLogin.setText(AppSettings.getLogin(this));
+        editTextConfGroupPassword.setText(AppSettings.getPassword(this));
         checkBoxConfGroup.setChecked(AppSettings.getChecked(this));
 
-        // Слушатель изменений в текстовом поле
-        editTextConfGroup.addTextChangedListener(new TextWatcher() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Сохранение текста
-                AppSettings.saveText(ActivityConfigurationGroup.this, s.toString());
+            public void onClick(View v) {
+                if (checkBoxConfGroup.isChecked()) {
+                    AppSettings.saveLogin(ActivityConfigurationGroup.this, editTextConfGroupLogin.getText().toString());
+                    AppSettings.savePassword(ActivityConfigurationGroup.this, editTextConfGroupPassword.getText().toString());
+                }
+                else {
+                    AppSettings.saveLogin(ActivityConfigurationGroup.this, "");
+                    AppSettings.savePassword(ActivityConfigurationGroup.this, "");
+                }
+                finish();
             }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
         });
 
         // Слушатель изменений в поле с флажком
@@ -57,10 +63,17 @@ public class ActivityConfigurationGroup extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Обрабатываем нажатие на кнопку "Назад"
         if (item.getItemId() == android.R.id.home) {
+            if (!checkBoxConfGroup.isChecked()) {
+                AppSettings.saveLogin(ActivityConfigurationGroup.this, "");
+                AppSettings.savePassword(ActivityConfigurationGroup.this, "");
+            }
+
             // Завершаем текущую активность
             finish();
             return true;

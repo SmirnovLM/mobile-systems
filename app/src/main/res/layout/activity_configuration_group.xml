@@ -8,15 +8,29 @@
     tools:context=".ActivityConfigurationGroup">
 
     <EditText
-        android:id="@+id/editTextConfGroup"
+        android:id="@+id/editTextConfGroupLogin"
         android:layout_width="377dp"
         android:layout_height="92dp"
-        android:hint="Enter text" />
+        android:hint="Enter login" />
+
+    <EditText
+        android:id="@+id/editTextConfGroupPassword"
+        android:layout_width="377dp"
+        android:layout_height="92dp"
+        android:hint="Enter password"
+        android:inputType="textPassword" />
 
     <CheckBox
         android:id="@+id/checkBoxCongGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save State" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login" />
+
 
 </LinearLayout>

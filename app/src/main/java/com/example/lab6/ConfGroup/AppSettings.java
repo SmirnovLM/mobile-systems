@@ -5,19 +5,33 @@ import android.preference.PreferenceManager;
 
 
 public class AppSettings {
-    private static final String TEXT_KEY = "text_key";
     private static final String CHECKED_KEY = "checked_key";
+    private static final String LOGIN_KEY = "login_key";
+    private static final String PASSWORD_KEY = "password_key";
 
-    public static void saveText(Context context, String text) {
+
+    public static void saveLogin(Context context, String login) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
-                .putString(TEXT_KEY, text)
+                .putString(LOGIN_KEY, login)
                 .apply();
     }
 
-    public static String getText(Context context) {
+    public static String getLogin(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(TEXT_KEY, "");
+                .getString(LOGIN_KEY, "");
+    }
+
+    public static void savePassword(Context context, String password) {
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .edit()
+                .putString(PASSWORD_KEY, password)
+                .apply();
+    }
+
+    public static String getPassword(Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(PASSWORD_KEY, "");
     }
 
     public static void saveChecked(Context context, boolean checked) {
