@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mobilesystems"
+    namespace = "com.example.MP3Player"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.mobilesystems"
+        applicationId = "com.example.MP3Player"
         minSdk = 33
         targetSdk = 33
         versionCode = 1
