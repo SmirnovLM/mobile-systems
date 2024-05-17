@@ -4,14 +4,19 @@ import android.content.Context;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Locale;
 
 public class CustomTimerView extends LinearLayout {
-    private TextView hoursTextView, minutesTextView, secondsTextView, millisecondsTextView;
+    private TextView hoursTextView, minutesTextView, secondsTextView;
     private Handler handler;
+
+
+    private ImageView secondHandImageView;
     private Runnable timerRunnable;
     private long startTime;
     private long pausedTime;
@@ -38,25 +43,28 @@ public class CustomTimerView extends LinearLayout {
         hoursTextView = findViewById(R.id.hoursTextView);
         minutesTextView = findViewById(R.id.minutesTextView);
         secondsTextView = findViewById(R.id.secondsTextView);
-        millisecondsTextView = findViewById(R.id.millisecondsTextView);
+        secondHandImageView = findViewById(R.id.secondHandImageView);
+
 
         handler = new Handler();
         timerRunnable = new Runnable() {
             @Override
             public void run() {
                 long elapsedTime = System.currentTimeMillis() - startTime;
-                int seconds = (int) (elapsedTime / 1000);
-                int minutes = seconds / 60;
-                int hours = minutes / 60;
-                int milliseconds = (int) (elapsedTime % 1000);
+                int seconds = (int) (elapsedTime / 1000) % 60; // Получаем количество секунд
+                float degrees = seconds * 6; // Каждая секунда увеличивает угол на 6 градусов
 
-                seconds %= 60;
-                minutes %= 60;
+                // Поворачиваем стрелку
+                secondHandImageView.setRotation(degrees);
 
-                updateTimer(hours, minutes, seconds, milliseconds);
+                // Обновляем таймер
+                int minutes = (int) (elapsedTime / 60000) % 60; // Получаем количество минут
+                int hours = (int) (elapsedTime / 3600000); // Получаем количество часов
+
+                updateTimer(hours, minutes, seconds);
 
                 if (isRunning) {
-                    handler.postDelayed(this, 100); // Обновление таймера каждые 100 миллисекунд
+                    handler.postDelayed(this, 1000); // Обновление таймера каждую секунду
                 }
             }
         };
@@ -85,14 +93,16 @@ public class CustomTimerView extends LinearLayout {
 
     public void resetTimer() {
         stopTimer();
-        updateTimer(0, 0, 0, 0);
+        updateTimer(0, 0, 0);
         pausedTime = 0;
+        secondHandImageView.setRotation(0);
     }
 
-    private void updateTimer(int hours, int minutes, int seconds, int milliseconds) {
+    private void updateTimer(int hours, int minutes, int seconds) {
         hoursTextView.setText(String.format(Locale.getDefault(), "%02d", hours));
         minutesTextView.setText(String.format(Locale.getDefault(), "%02d", minutes));
         secondsTextView.setText(String.format(Locale.getDefault(), "%02d", seconds));
-        millisecondsTextView.setText(String.format(Locale.getDefault(), "%03d", milliseconds));
     }
+
+
 }

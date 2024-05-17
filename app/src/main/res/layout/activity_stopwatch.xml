@@ -7,12 +7,12 @@
 
     <com.example.lab7.CustomTimerView
         android:id="@+id/customTimerView"
-        android:layout_width="270dp"
-        android:layout_height="wrap_content"
+        android:layout_width="395dp"
+        android:layout_height="237dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="0dp" />
 
     <Button
@@ -32,4 +32,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="Reset" />
+
+
+
+
 </RelativeLayout>

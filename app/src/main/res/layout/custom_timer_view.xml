@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="200dp">
 
     <TextView
         android:id="@+id/hoursTextView"
@@ -14,39 +13,67 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text=":" />
+        android:layout_alignTop="@id/hoursTextView"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@id/hoursTextView"
+        android:text=":"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/minutesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="00" />
+        android:layout_alignTop="@id/hoursTextView"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@id/hoursTextView"
+        android:text="00"
+        android:textSize="40sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text=":" />
+        android:layout_alignTop="@id/minutesTextView"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@id/minutesTextView"
+        android:text=":"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/secondsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="00" />
+        android:layout_alignTop="@id/minutesTextView"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@id/minutesTextView"
+        android:text="00"
+        android:textSize="40sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text=":" />
+    <ImageView
+        android:id="@+id/dialImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/hoursTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="248dp"
+        android:src="@drawable/clock" />
 
-    <TextView
-        android:id="@+id/millisecondsTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="000" />
-</LinearLayout>
+    <ImageView
+        android:id="@+id/secondHandImageView"
+        android:layout_width="2dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="298dp"
+        android:background="@android:color/black"
+        android:rotation="0"
+        android:transformPivotX="0dp"
+        android:transformPivotY="30dp" />
+
+</RelativeLayout>
