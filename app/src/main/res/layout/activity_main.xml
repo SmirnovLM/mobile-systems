@@ -136,7 +136,7 @@
             android:layout_marginStart="80dp"
             android:layout_marginTop="50dp"
             android:background="@color/dark_gray"
-            android:src="@drawable/previous_button" />
+            android:src="@drawable/button_previous" />
 
 
     </RelativeLayout>
