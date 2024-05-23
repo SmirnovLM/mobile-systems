@@ -138,7 +138,6 @@
             android:background="@color/dark_gray"
             android:src="@drawable/button_previous" />
 
-
     </RelativeLayout>
 
     <LinearLayout
@@ -167,7 +166,5 @@
             android:background="@android:color/white" />
 
     </LinearLayout>
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
