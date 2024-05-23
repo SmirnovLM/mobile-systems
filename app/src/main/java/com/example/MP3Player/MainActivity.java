@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.documentfile.provider.DocumentFile;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler;
 
     boolean isReplayClicked = false; // Флаг, указывающий, была ли нажата кнопка "реплей"
+
+    private DrawerLayout drawerLayout;
+    private RecyclerView recyclerViewSongs;
+    private SongAdapter songAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,34 +83,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentSongIndex++;
-                if (currentSongIndex < listAudioFiles.size()) {
-                    displaySongInfo(listAudioFiles.get(currentSongIndex));
-                    playSong(listAudioFiles.get(currentSongIndex));
-                } else {
+                if (currentSongIndex >= listAudioFiles.size()) {
                     currentSongIndex = 0;
-                    displaySongInfo(listAudioFiles.get(currentSongIndex));
-                    playSong(listAudioFiles.get(currentSongIndex));
                 }
+                songAdapter.setSelectedPosition(currentSongIndex);
+                displaySongInfo(listAudioFiles.get(currentSongIndex));
+                playSong(listAudioFiles.get(currentSongIndex));
             }
         });
 
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentSongIndex > 0) {
-                    try {
-                        if (mediaPlayer != null) {
-                            if (mediaPlayer.getCurrentPosition() < 5000) {
-                                currentSongIndex--;
-                                playSong(listAudioFiles.get(currentSongIndex));
-                            } else {
-                                mediaPlayer.seekTo(0);
-                                mediaPlayer.start();
-                                playButton.setImageResource(R.drawable.button_pause);
-                            }
+                if (mediaPlayer != null) {
+                    if (mediaPlayer.getCurrentPosition() < 10000) {
+                        currentSongIndex--;
+                        if (currentSongIndex < 0) {
+                            currentSongIndex = listAudioFiles.size() - 1;
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                        songAdapter.setSelectedPosition(currentSongIndex);
+                        displaySongInfo(listAudioFiles.get(currentSongIndex));
+                        playSong(listAudioFiles.get(currentSongIndex));
+                    } else {
+                        mediaPlayer.seekTo(0);
+                        mediaPlayer.start();
+                        playButton.setImageResource(R.drawable.button_pause);
                     }
                 }
             }
@@ -119,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
 
         handler = new Handler();
 
-        // Установка обработчика изменения положения полосы прогресса
         seekBarProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -131,7 +134,6 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        // Установка обновления времени и полосы прогресса каждую секунду
         Runnable updateSeekBar = new Runnable() {
             @Override public void run() {
                 if (mediaPlayer != null) {
@@ -139,13 +141,12 @@ public class MainActivity extends AppCompatActivity {
                     seekBarProgress.setProgress(currentPosition);
                     textViewCurrentTime.setText(millisecondsToTime(currentPosition));
                 }
-                handler.postDelayed(this, 1000); // Обновляем каждую секунду
+                handler.postDelayed(this, 1000);
             }
         };
 
         handler.postDelayed(updateSeekBar, 0);
     }
-
 
     private void initializeUIElements() {
         selectButton = findViewById(R.id.button_select_music);
@@ -173,20 +174,36 @@ public class MainActivity extends AppCompatActivity {
         replayButton.setVisibility(View.GONE);
         previousButton.setVisibility(View.GONE);
         nextButton.setVisibility(View.GONE);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        recyclerViewSongs = findViewById(R.id.recycler_view_songs);
+
+        recyclerViewSongs.setLayoutManager(new LinearLayoutManager(this));
+        songAdapter = new SongAdapter(listAudioFiles, new SongAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                currentSongIndex = position;
+                displaySongInfo(listAudioFiles.get(currentSongIndex));
+                playSong(listAudioFiles.get(currentSongIndex));
+                drawerLayout.closeDrawers();
+            }
+        });
+        recyclerViewSongs.setAdapter(songAdapter);;
     }
+
     private void setVisibleUIElements() {
         textViewSongName.setVisibility(View.VISIBLE);
         textViewArtistName.setVisibility(View.VISIBLE);
         textViewCurrentTime.setVisibility(View.VISIBLE);
         textViewTotalTime.setVisibility(View.VISIBLE);
+
         seekBarProgress.setVisibility(View.VISIBLE);
+
         playButton.setVisibility(View.VISIBLE);
         replayButton.setVisibility(View.VISIBLE);
         nextButton.setVisibility(View.VISIBLE);
         previousButton.setVisibility(View.VISIBLE);
     }
-
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -206,14 +223,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!listAudioFiles.isEmpty()) {
                     currentSongIndex = 0;
+                    songAdapter.setSelectedPosition(currentSongIndex);
                     try {
                         setVisibleUIElements();
                         displaySongInfo(listAudioFiles.get(currentSongIndex));
+                        playSong(listAudioFiles.get(currentSongIndex)); // Начать воспроизведение первой песни
+                        recyclerViewSongs.getAdapter().notifyDataSetChanged();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-
             }
         }
     }
@@ -224,15 +243,17 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.release();
                 mediaPlayer = null;
             }
-            
+
+            mediaPlayer = new MediaPlayer();
             mediaPlayer.setDataSource(getApplicationContext(), audioUri);
             mediaPlayer.prepare();
+            mediaPlayer.start();
 
-            // Устанавливаем максимальное значение прогресса для SeekBar
             textViewTotalTime.setText(millisecondsToTime(mediaPlayer.getDuration()));
             seekBarProgress.setMax(mediaPlayer.getDuration());
 
-            // Устанавливаем слушатель завершения воспроизведения
+            playButton.setImageResource(R.drawable.button_pause);
+
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
@@ -240,37 +261,32 @@ public class MainActivity extends AppCompatActivity {
                         mediaPlayer.seekTo(0);
                         mediaPlayer.start();
                     } else {
-                        mediaPlayer.pause();
-                        playButton.setImageResource(R.drawable.button_start);
+                        currentSongIndex++;
+                        if (currentSongIndex >= listAudioFiles.size()) {
+                            currentSongIndex = 0;
+                        }
+                        songAdapter.setSelectedPosition(currentSongIndex);
+                        displaySongInfo(listAudioFiles.get(currentSongIndex));
+                        playSong(listAudioFiles.get(currentSongIndex));
                     }
                 }
             });
-
-
         } catch (Exception e) {
             e.printStackTrace();
-            // Обработка ошибок при подготовке и воспроизведении песни
             imageViewAlbumArt.setImageResource(R.drawable.art);
         }
     }
 
-
     private void displaySongInfo(Uri audioUri) {
         try {
-            // Получаем обложку альбома и устанавливаем её на ImageView:
             MediaMetadataRetriever retriever = new MediaMetadataRetriever();
             retriever.setDataSource(getApplicationContext(), audioUri);
 
-            // Получение автора и название песни:
             String songName = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
-            if (songName != null) textViewSongName.setText(songName);
-            else textViewSongName.setText("Unknown Title");
-
+            textViewSongName.setText(songName != null ? songName : "Unknown Title");
 
             String artistName = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
-            if (artistName != null) textViewArtistName.setText(artistName);
-            else textViewArtistName.setText("Unknown Artist");
-
+            textViewArtistName.setText(artistName != null ? artistName : "Unknown Artist");
 
             byte[] albumArt = retriever.getEmbeddedPicture();
             if (albumArt != null) {
@@ -280,7 +296,7 @@ public class MainActivity extends AppCompatActivity {
                 imageViewAlbumArt.setImageResource(R.drawable.art);
             }
 
-            retriever.release(); // Освобождение:
+            retriever.release();
         } catch (Exception e) {
             e.printStackTrace();
         }

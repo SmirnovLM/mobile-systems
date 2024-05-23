@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/image_album"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/art" />
+
+    <!-- Информация о песне -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="8dp">
+
+        <!-- Название песни -->
+        <TextView
+            android:id="@+id/text_song_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="Song Name"
+            android:textColor="@color/black"/>
+
+        <!-- Имя исполнителя -->
+        <TextView
+            android:id="@+id/text_artist_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="Artist Name"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

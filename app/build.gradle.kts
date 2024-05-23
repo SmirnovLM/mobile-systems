@@ -32,7 +32,9 @@ android {
 }
 
 dependencies {
-
+    implementation("androidx.drawerlayout:drawerlayout:1.1.1")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("com.google.android.material:material:1.3.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
